@@ -1,0 +1,73 @@
+
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Аудиогид: Старый Кахиб</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background: #f8f8f8;
+      padding: 20px;
+    }
+    .container {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      max-width: 700px;
+      margin: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      margin-bottom: 10px;
+    }
+    .lang-buttons {
+      margin-bottom: 20px;
+    }
+    button {
+      margin: 5px;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 8px;
+      border: none;
+      background-color: #007BFF;
+      color: white;
+    }
+    audio {
+      width: 100%;
+      max-width: 600px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Аудиогид: Старый Кахиб</h1>
+    <div class="lang-buttons">
+      <button onclick="setLanguage('ru')">Русский</button>
+      <button onclick="setLanguage('en')">English</button>
+    </div>
+    <audio id="player" controls>
+      <source id="audioSource" src="kahib_ru.mp3" type="audio/mpeg" />
+      Ваш браузер не поддерживает аудио.
+    </audio>
+  </div>
+
+  <script>
+    function setLanguage(lang) {
+      const source = document.getElementById('audioSource');
+      if (lang === 'ru') {
+        source.src = 'kahib_ru.mp3';
+      } else {
+        source.src = 'kahib_en.mp3';
+      }
+      const player = document.getElementById('player');
+      player.load();
+      player.play();
+    }
+  </script>
+</body>
+</html>
